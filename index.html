@@ -6,35 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.png" />    
 </head>
 <body>
     <div class = "body-container">
-        <header class = "header-container">
+        <header class = "header-container">            
             <div class = "wrapper">
-                <div class = "header-content flex-row">
-                    <img src = "logo.png" alt = "Логотип">
+                <div class = "header-content flex-row">                   
+                    <a class="header-logo" href="index_my.html" title="На главную">
+                        <img src = "logo.png" alt = "Логотип">
+                    </a>                     
                     <div class = "burger-button flex-row">
                         <span></span>
                     </div>
-                    <div class = "header-menu flex-row">
-                      <a href = "#">Главная</a>
-                      <a href = "#">Услуги</a>
-                      <a href = "#">Цены</a>
-                      <a href = "#">Контакты</a>
-                    </div>
+                    <nav class="header-menu">
+                        <ul class="header-menu-list flex-column">                
+                           <li><a data-goto="#main-page" href="#" class="header-menu-link selected">главная</a></li>                
+                           <li><a data-goto="#how-we-work" href="#" class="header-menu-link">услуги</a></li>                
+                           <li><a data-goto="#freelancers" href="#" class="header-menu-link">цены</a></li>                
+                           <li><a data-goto="#startups" href="#" class="header-menu-link">контакты</a></li>                                    
+                       </ul>
+                   </nav>                                       
                     <div class = "header-contact flex-column">
-                      <a href = "#">+79990001122</a>
-                      <p>Работаем с 10:00 до 22:00</p>                
-                    </div>
-                </div>
-            </div>
+                        <a href = "tel:+79990001122">+79990001122</a>
+                        <p>Работаем с 10:00 до 22:00</p>                
+                    </div>                    
+                </div>                
+            </div>            
         </header>
         <main class = "main-container">
             <section class = "wrapper"> 
                 <div class = "main-start flex-row">
                     <h1>Создание сайтов под ключ</h1>
-                    <img src = "main.png" alt = "Сайты под ключ">
-                </div>
+                    <div class="main-start-button">
+                        <button href="#recall" class="button">Заказать сайт</button>
+                    </div>           
+                    <img src = "main.png" alt = "Сайты под ключ">           
+                </div>                        
             </section>
             <section class = "wrapper"> 
                 <div class = "main-service flex-column">
@@ -43,17 +51,17 @@
                         <div class = "main-service-item flex-column">
                             <h3>Лендинг</h3>
                             <p>От 20000руб</p>
-                            <button>Заказать</button>
+                            <button href="#recall" class="button">Заказать</button>
                         </div>
                         <div class = "main-service-item flex-column">
                             <h3>Интернет магазин</h3>
                             <p>От 40000руб</p>
-                            <button>Заказать</button>
+                            <button href="#recall" class="button">Заказать</button>
                         </div>
                         <div class = "main-service-item flex-column">
                             <h3>Доска объявлений</h3>
                             <p>От 80000руб</p>
-                            <button>Заказать</button>
+                            <button href="#recall" class="button">Заказать</button>
                         </div>
                     </div>
                 </div>
@@ -62,17 +70,17 @@
                 <div class = "main-about flex-column">
                     <h2>О нас</h2>
                     <div class = "main-about-text flex-row">
-                        
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nibh nibh, mollis sit amet luctus id, laoreet sit amet libero. Aenean id tempor ante. Vestibulum cursus et quam non ultricies. Ut ipsum leo, fringilla et purus sit amet, accumsan placerat magna. Suspendisse suscipit sodales est in molestie. Mauris ullamcorper aliquam porta. Nulla facilisi. Integer semper sodales sollicitudin. Nulla et augue ac odio semper luctus. Sed placerat turpis sed est aliquam mollis. Vivamus est augue, bibendum non efficitur eget, laoreet id mauris. Vestibulum nisi turpis, pharetra in pretium sed, euismod ac orci. Nulla a gravida lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sed ex pulvinar, imperdiet sapien id, volutpat libero.
 
-In quis velit tempus turpis laoreet elementum in id erat. Suspendisse interdum faucibus purus vel finibus. Vestibulum porta molestie finibus. Ut quam dolor, pretium in lectus sit amet, euismod commodo risus. Etiam gravida, sapien sit amet suscipit posuere, neque felis imperdiet nisl, id rhoncus diam velit at erat. Duis condimentum leo sit amet aliquam sodales. Sed varius eros non arcu ullamcorper luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut in odio vel leo rutrum commodo et aliquam dui. Aliquam nulla nibh, pretium eu tellus id, accumsan ornare metus. Curabitur rhoncus eleifend cursus. Pellentesque at sem commodo augue sodales egestas quis sed libero.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nibh nibh, mollis sit amet luctus id, laoreet sit amet libero. Aenean id tempor ante. Vestibulum cursus et quam non ultricies. Ut ipsum leo, fringilla et purus sit amet, accumsan placerat magna. Suspendisse suscipit sodales est in molestie. Mauris ullamcorper aliquam porta. Nulla facilisi. Integer semper sodales sollicitudin. Nulla et augue ac odio semper luctus. Sed placerat turpis sed est aliquam mollis. Vivamus est augue, bibendum non efficitur eget, laoreet id mauris. Vestibulum nisi turpis, pharetra in pretium sed, euismod ac orci. Nulla a gravida lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sed ex pulvinar, imperdiet sapien id, volutpat libero.
 
-Etiam ultrices dui ornare, blandit neque in, efficitur tellus. Morbi ut condimentum nulla. Quisque lacus massa, commodo sed nisi non, scelerisque venenatis ex. Vivamus eleifend diam et lacus interdum, bibendum pulvinar tellus venenatis. Pellentesque pretium vehicula vehicula. Donec pretium eget orci et sodales. Vestibulum vel dignissim arcu. Curabitur nisi lacus, hendrerit at fringilla non, hendrerit sit amet nisl. In cursus ut lectus eget lobortis. Duis imperdiet dolor in purus placerat, eu aliquam nibh pellentesque. Donec vehicula vulputate mi, id ultrices quam rutrum at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi vitae auctor diam. Duis felis magna, efficitur ut fringilla ac, vestibulum vitae lectus. Maecenas tristique nibh eget erat porta, id malesuada enim interdum.
+                        In quis velit tempus turpis laoreet elementum in id erat. Suspendisse interdum faucibus purus vel finibus. Vestibulum porta molestie finibus. Ut quam dolor, pretium in lectus sit amet, euismod commodo risus. Etiam gravida, sapien sit amet suscipit posuere, neque felis imperdiet nisl, id rhoncus diam velit at erat. Duis condimentum leo sit amet aliquam sodales. Sed varius eros non arcu ullamcorper luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut in odio vel leo rutrum commodo et aliquam dui. Aliquam nulla nibh, pretium eu tellus id, accumsan ornare metus. Curabitur rhoncus eleifend cursus. Pellentesque at sem commodo augue sodales egestas quis sed libero.
 
-Donec non orci metus. Curabitur tristique luctus felis sodales mattis. Phasellus sit amet arcu sit amet augue hendrerit cursus. Vivamus tristique leo nec orci placerat, vel faucibus est ullamcorper. Cras venenatis id massa ut gravida. Donec hendrerit luctus nulla, nec tincidunt est tempus interdum. Nulla et justo turpis. Duis ultricies at diam nec dignissim. Vestibulum luctus lorem diam, in pellentesque sapien feugiat id. In turpis velit, fringilla ac mollis ut, tempus eget arcu. In sit amet congue orci. Nunc suscipit turpis purus. Etiam consectetur arcu a risus aliquam, sed vehicula risus mattis. Morbi eu ex tellus.
+                        Etiam ultrices dui ornare, blandit neque in, efficitur tellus. Morbi ut condimentum nulla. Quisque lacus massa, commodo sed nisi non, scelerisque venenatis ex. Vivamus eleifend diam et lacus interdum, bibendum pulvinar tellus venenatis. Pellentesque pretium vehicula vehicula. Donec pretium eget orci et sodales. Vestibulum vel dignissim arcu. Curabitur nisi lacus, hendrerit at fringilla non, hendrerit sit amet nisl. In cursus ut lectus eget lobortis. Duis imperdiet dolor in purus placerat, eu aliquam nibh pellentesque. Donec vehicula vulputate mi, id ultrices quam rutrum at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi vitae auctor diam. Duis felis magna, efficitur ut fringilla ac, vestibulum vitae lectus. Maecenas tristique nibh eget erat porta, id malesuada enim interdum.
 
-Duis quis elit et dui viverra eleifend porta vitae lectus. Donec gravida nec arcu vitae tempor. Praesent lobortis, enim ac lobortis auctor, ex enim cursus sapien, ut aliquam tortor dui id nunc. Vivamus id consectetur nulla. Duis sodales tincidunt lacus, id facilisis odio aliquam eget. Vivamus eget consequat ante. Morbi sagittis orci neque, sit amet fermentum sapien posuere ac. Curabitur scelerisque odio ex, at ultrices metus placerat ut. 
+                        Donec non orci metus. Curabitur tristique luctus felis sodales mattis. Phasellus sit amet arcu sit amet augue hendrerit cursus. Vivamus tristique leo nec orci placerat, vel faucibus est ullamcorper. Cras venenatis id massa ut gravida. Donec hendrerit luctus nulla, nec tincidunt est tempus interdum. Nulla et justo turpis. Duis ultricies at diam nec dignissim. Vestibulum luctus lorem diam, in pellentesque sapien feugiat id. In turpis velit, fringilla ac mollis ut, tempus eget arcu. In sit amet congue orci. Nunc suscipit turpis purus. Etiam consectetur arcu a risus aliquam, sed vehicula risus mattis. Morbi eu ex tellus.
+
+                        Duis quis elit et dui viverra eleifend porta vitae lectus. Donec gravida nec arcu vitae tempor. Praesent lobortis, enim ac lobortis auctor, ex enim cursus sapien, ut aliquam tortor dui id nunc. Vivamus id consectetur nulla. Duis sodales tincidunt lacus, id facilisis odio aliquam eget. Vivamus eget consequat ante. Morbi sagittis orci neque, sit amet fermentum sapien posuere ac. Curabitur scelerisque odio ex, at ultrices metus placerat ut. 
                     </div>
                 </div>
             </section>
@@ -81,22 +89,22 @@ Duis quis elit et dui viverra eleifend porta vitae lectus. Donec gravida nec arc
             <div class = "wrapper">
                 <div class = "footer-content flex-row">
                     <p>&copy; Сайт под ключ</p> 
-                    <a href = "#">Политика конфиденциальности</a>
+                    <a href = "#">Политика конфиденциальности</a>                
                 </div>
             </div>
-        </footer>
+        </footer>        
         <div class = "hidden-container">
             <div class = "popup" id = "recall">
                 <h3>Заказать сайт</h3>
                 <form class = "flex-column" method = "POST" action = "/">
                     <input class = "" type = "text" name="name" required placeholder = "Ваше имя*">
-                    <input class = "" type="tel" name="name"  required placeholder = "Ваш телефон*">
-                    <button class = "" type = "button">Отправить</button>  
+                    <input class = "" type="tel" name="phone"  required placeholder = "Ваш телефон*">
+                    <button type = "button">Отправить</button>  
                 </form>
-              </div> 
+            </div> 
         </div>
     </div> 
-    <script src = "/tingle.min.js"></script>  
-    <script src = "/script.js"></script>  
+    <script src = "tingle.min.js"></script>  
+    <script src = "script.js"></script>  
 </body>
 </html>

@@ -11,6 +11,11 @@
     line-height: 1.25;
     color: rgba(0,0,0,0.85);
 }
+/*добавил для предотвращения скролла под выезжающим меню бургера*/
+body._lock {
+    overflow: hidden;
+}
+/*---------------------------------*/
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.15;
 }
@@ -40,7 +45,7 @@ a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none;    
 }
 .flex-row {
     display: flex;
@@ -53,6 +58,7 @@ a {
 :root {
     --button-hover: #DFA245;
     --button: #FFB94F;
+    --white: #fff;
 }
 section {
     position: relative;
@@ -96,7 +102,7 @@ section {
 .tingle-modal--noClose .tingle-modal__close {
     display: none;
 }
-.tingle-modal__close {
+.tingle-modal__close {  /* моё: это должен быть крестик закрывающий */
     position: fixed;
     z-index: 1000;
     border: none;
@@ -123,7 +129,7 @@ section {
     opacity: 1;
     cursor: auto;
     will-change: transform, opacity;
-    z-index: 1000;
+    z-index: 1000;  /*моё: в оригинале нет этого*/
 }
   .tingle-modal-box__content {
       border: solid 2px var(--orange-lite);
@@ -234,14 +240,36 @@ input, button, textarea, select {
 
 /*-------------HEADER-------------------*/
 .header-container {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2); 
+/*добавил для фиксации header */
+    position: fixed;
+    min-width: 100vw;
+    top: 0;
+    left: 0; 
+    background-color: rgb(74, 51, 158); /* для улучш. при прокрутке стр */    
+    z-index: 5;
+/*------------------*/
+}
+/*добавил */
+.header-container a {
+    color: var(--white);
+    text-transform: uppercase;    
 }
 .header-content {
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
 }
-.header-menu a {
-    text-transform: uppercase;
+/*замена селектора .header-content img на: */
+.header-logo {
+    line-height: 0; /*добавил для уменьш-я высоты header */
+}
+/*----------------*/
+/*смена селектора с .header-memu a на: */
+.header-menu-link {    
+/*добавил для лучшего вида*/
+    letter-spacing: 1vw;
+    color: var(--white);    
+/*-----------------------------*/
 }
 .burger-button {
     position: relative;
@@ -249,28 +277,24 @@ input, button, textarea, select {
     cursor: pointer;
     align-items: center;
 }
-.burger-button span {
-    background-color: var(--button);
-    position: absolute;
-    transition-duration: .25s;
-    transition-delay: .25s;    
-}
-.burger-button span:before {
-    left: 0;
-    position: absolute;
-    background-color: var(--button);
-    content: "";
-    transition-duration: .25s;
-    transition: transform .25s, top .25s .25s;
-}
+/*оптимизация кода: */
+.burger-button span,
+.burger-button span:before,
 .burger-button span:after {
-    left: 0;
+    background-color: #fff;/*изменил цвет фона полосок*/
     position: absolute;
-    background-color: var(--button);
-    content: "";
-    transition-duration: .25s;
+    transition-duration: .25s;        
+}
+.burger-button span {
+   transition-delay: .25s; 
+}
+.burger-button span:before,
+.burger-button span:after {
+    left: 0;    
+    content: "";    
     transition: transform .25s, top .25s .25s;
 }
+/*---------------------------------------*/
 .burger-button.open span {
     transition-duration: 0.1s;
     transition-delay: .25s;
@@ -293,6 +317,15 @@ input, button, textarea, select {
     justify-content: space-between;
     align-items: center;
 }
+/*добавил 2 селектора для добавленной кнопки*/
+.main-start-button button{
+    background-color: var(--button);
+    color: #fff;
+}
+.main-start-button button:hover {
+    background-color: var(--button-hover);
+}
+/*----------------------------------*/
 .main-service-item {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     align-items: center;
@@ -327,7 +360,7 @@ input, button, textarea, select {
     }
     * {
 		font-size: 4.4vw;
-	}
+	}    
     /*-------------------TINGLE-MODAL----------------------*/
     .tingle-modal {
         top: 0px;
@@ -336,7 +369,7 @@ input, button, textarea, select {
         width: 100%;
     }
     .tingle-modal-box {
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius); /*моё: такой переменной не нашел*/
 		margin: 5vw;
 		width: auto;
 		display: flex;
@@ -344,13 +377,13 @@ input, button, textarea, select {
     .tingle-modal-box__content {
 		margin: 4vw;
         padding: 4vw;
-		border-radius: var(--border-radius);
+		border-radius: var(--border-radius);  /*моё: такой переменной не нашел*/
 		width: 100%;
     }
     .tingle-modal-box__footer {
         padding: 5vw 3.5vw;
-        border-bottom-right-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius); /*моё: такой переменной не нашел*/
+        border-bottom-left-radius: var(--border-radius);/*моё: такой переменной не нашел*/
     }
     .tingle-modal-box__footer--sticky {
         bottom: -18vw;
@@ -399,28 +432,67 @@ input, button, textarea, select {
         vertical-align: middle;
         font-size: 0;
      }
-         /*-------------HEADER-------------------*/
+        /*-------------HEADER-------------------*/
     .header-content {
         padding: 3vw 0;
     }
-    .header-content img {
+/*замена селектора .header-content img на: */
+    .header-logo {
         width: 12vw;
+/*добавил для видимости логотипа при .header-menu._active */
+        position: relative;
+        z-index: 2;
+/*---------------------------------------*/
+    } 
+/*добавил menu вместо .header-menu a: */
+    .header-menu {        
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;        
+        transform: translate(-100%, 0px);
+        background-color: rgba(0, 0, 0, .95);         
+        text-align: center;        
+        transition: all 0.5s ease 0s;        
+        overflow: auto;
+    }    
+    .header-menu._active {       
+        transform: translate(0px, 0px);        
+        transition: all 0.5s ease 0s;        
+    } 
+    .header-menu-list>li {
+       margin-top: 25vw ; 
+    } 
+    .header-menu._active .header-menu-link {
+        display: inline;        
     }
-    .header-menu a {
-        display: none;
+    .header-contact a {
+        color: var(--white);   /*изменил цвет номера тлф для лучшей видимости на стр*/ 
+        letter-spacing: 1vw; /*добавил для лучшего вида*/        
     }
+/*-------------------------------------*/
     .header-contact p {
         display: none;
     }
 	.burger-button {
         width: 9vw;
         height: 9vw;
+/*добавил для того, чтобы поменять местами с номером тлф*/
+        order: 1;
+/*добавил для видимости бургера при .header-menu._active */        
+        z-index: 2; 
+/*--------------------------------------------*/
     }
-    .burger-button span, .burger-button span:before, .burger-button span:after {
+/*для улучшения читабельности кода поставил селекторы в колонку */
+    .burger-button span, 
+    .burger-button span:before, 
+    .burger-button span:after {
         height: 1vw;
         width: 9vw;
         border-radius: 2vw; 
-    }
+    }    
+/*----------------------------------------*/
     .burger-button span:before {
        top: -3vw;
     }
@@ -428,18 +500,28 @@ input, button, textarea, select {
        top: 3vw;
     }
 
-/*-------------MAIN-------------------*/
+/*-------------MAIN-------------------*/    
     .main-start {
-        padding: 8vw 0;
-        flex-direction: column;
+        padding: 20vw 0 8vw;
+        flex-direction: column;        
     }
     .main-start h1 {
+        margin-bottom: 9vw;
         font-size: 10vw;
         text-align: center;
+        order: 1;
+    }
+    .main-start-button {
+        order: 2;
+    }
+    .main-start-button button {
+        width: 50vw;
+        height: 10vw;        
     }
     .main-start img {
         width: 70vw;
         height: 70vw;
+        order: 0;        
     }
     .main-service {
         padding: 5vw 0;
@@ -520,22 +602,58 @@ input, button, textarea, select {
         margin: 0 1.2vw;
         padding: 2vw 3.5vw;
     }
-    /*-------------HEADER-------------------*/
+    /*-------------HEADER-------------------*/    
     .header-content {
         padding: 1.5vw 0;
     }
-    .header-content img {
+/*замена селектора .header-content img на: */
+    .header-logo {
         width: 6vw;
+/*добавил для видимости логотипа при .header-menu._active */
+        position: relative;
+        z-index: 2;
+/*---------------------------------------*/
     }
-    .header-menu a {
-        font-size: 3vw;
+/*добавил menu вместо .header-menu a: */
+    .header-menu {        
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;        
+        transform: translate(-100%, 0px);
+        background-color: rgba(0, 0, 0, .95);         
+        text-align: center;        
+        transition: all 0.5s ease 0s;        
+        overflow: auto;
     }
+    .header-menu._active {       
+        transform: translate(0px, 0px);        
+        transition: all 0.5s ease 0s;        
+    } 
+    .header-menu-list>li {
+       margin-top: 15vw ; 
+    } 
+    .header-menu._active .header-menu-link {
+        display: inline;
+        color: #fff;               
+    }
+    .header-contact a {
+        color: #fff;  /*изменил цвет номера тлф для лучшей видимости на стр*/ 
+        letter-spacing: 0.5vw; /*добавил для лучшего вида*/      
+    }
+/*-------------------------------------*/    
     .header-contact p {
-        display: none;
+        display: none;        
     }
 	.burger-button {
         width: 5vw;
         height: 5vw;
+/*добавил для того, чтобы поменять местами с номером тлф*/
+        order: 1;
+/*добавил для видимости бургера при .header-menu._active */        
+        z-index: 2; 
+/*--------------------------------------------*/        
     }
     .burger-button span, .burger-button span:before, .burger-button span:after {
         height: 0.7vw;
@@ -549,12 +667,21 @@ input, button, textarea, select {
        top: 1.8vw;
     }
 
-/*-------------MAIN-------------------*/
+/*-------------MAIN-------------------*/    
     .main-start {
-        padding: 2vw 0;
-    }
+        padding: 12vw 0 10vw;
+        flex-wrap: wrap;
+    }    
     .main-start h1 {
         font-size: 5vw;
+    }
+    .main-start-button {
+        order: 3;        
+    }
+    .main-start-button button {
+        width: 30vw;
+        height: 6vw;
+        font-size: 4vw;
     }
     .main-start img {
         width: 25vw;
@@ -640,29 +767,83 @@ input, button, textarea, select {
     .header-content {
         padding: 0.65vw 0;
     }
-    .header-content img {
+/*замена селектора .header-content img на: */
+    .header-logo {
         width: 4.4vw;
     }
-    .header-menu a {
-        margin: 0 2.5vw;
-        font-size: 1.5vw;
+    /*добавил для Доступности*/
+    .header-logo:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 1px;
     }
+/*-------------------------------------*/
+/*добавил menu вместо .header-menu a: */
+    .header-menu-list {
+        flex-direction: row;        
+        column-gap: 4vw;
+    }   
+    .header-menu-link {
+        font-size: 1.5vw;
+        letter-spacing: 0.3vw;
+/*плавное подчеркивание пунктов меню при наведении*/
+        text-decoration: underline 2px rgba(250, 250, 250, 0);
+        transition: text-decoration-color 1s;
+    } 
+    .header-menu-link:hover {
+        text-decoration-color: rgba(250, 250, 250, 1); 
+    }
+    /*добавил для Доступности*/
+    .header-menu-link:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 10px;
+    }
+/*----------------------------*/    
     .header-contact a {
         font-size: 1.5vw;
+/*добавил для выделения номера тлф рамкой*/
+        outline: 2px solid var(--white);
+/*добавил для лучшей читабельности на стр.*/
+        letter-spacing: 0.2vw;
+        padding-left: 0.4vw;
+    }    
+    .header-contact a:hover {        
+        background-color: var(--button);
+        outline: none;
+        color: var(--white);
     }
+    /*добавил для Доступности*/
+    .header-contact a:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 1px;
+    }
+/*добавил для лучшей читабельности на стр.*/
+    .header-contact p {
+        color: var(--white);
+        margin-top: .7vw;
+        letter-spacing: 0.2vw;
+    }
+/*------------------------------------*/
     .burger-button {
         display: none;
     }
-
-/*-------------MAIN-------------------*/
+/*-------------MAIN-------------------*/   
     .main-start {
-        padding: 1.3vw 0;
+        padding: 7.5vw 0 1.3vw;
     }
     .main-start h1 {
         font-size: 3.15vw;
     }
+    .main-start-button button {
+        width: 20vw;
+        height: 4vw;
+        font-size: 2vw;
+    }
+    /*добавил для Доступности*/
+    .main-start-button button:focus-visible {
+        border: 4px solid #000;         
+    }
     .main-start img {
-        width: 18.75vw;
+        width: 18.75vw;     
         height: 18.75vw;
     }
     .main-service {
@@ -674,6 +855,8 @@ input, button, textarea, select {
     }
     .main-service-list {
         gap: 2.5vw;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .main-service-item {
         padding: 1.9vw;
@@ -687,6 +870,10 @@ input, button, textarea, select {
         width: 12.5vw;
         height: 2.8vw;
     }
+    /*добавил для Доступности*/
+    .main-service-item button:focus-visible {
+       border: 4px solid #000;        
+    }
     .main-about {
         padding: 1.9vw 0 3.75vw;
     }
@@ -698,6 +885,11 @@ input, button, textarea, select {
 /*-------------FOOTER-------------------*/
     .footer-content {
         padding: 0.95vw 0;
+    }
+    /*добавил для Доступности*/
+    .footer-content a:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 5px;
     }
 }
 
@@ -744,34 +936,86 @@ input, button, textarea, select {
         padding: 20px 40px;
     }
 
-/*-------------HEADER-------------------*/
+/*-------------HEADER-------------------*/    
     .header-content {
         padding: 10px 0;
     }
-    .header-content img {
+/*замена селектора .header-content img на: */
+    .header-logo {
         width: 70px;
     }
-    .header-menu a {
-        margin: 0 40px;
-        font-size: 24px;
+    /*добавил для Доступности*/
+    .header-logo:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 1px;
     }
+/*замена селектора .header-menu a на: */
+    .header-menu-list {
+       flex-direction: row; 
+       column-gap: 60px; 
+    }
+    .header-menu-link {
+        font-size: 24px;
+        letter-spacing: 4px;
+/*плавное подчеркивание пунктов меню при наведении*/
+        text-decoration: underline 2px rgba(250, 250, 250, 0);
+        transition: text-decoration-color 1s;
+    }
+    .header-menu-link:hover {
+        text-decoration-color: rgba(250, 250, 250, 1);                
+    } 
+    /*добавил для Доступности*/
+    .header-menu-link:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 10px;
+    }   
+/*--------------------------------------------*/
     .header-contact a {
         font-size: 24px;
+/*добавил  для выделения номера тлф рамкой*/
+        outline: 2px solid var(--white);
+        letter-spacing: 5px;
+        padding-left: 0.4vw;
     }
+    .header-contact a:hover {        
+        background-color: var(--button);
+        outline: none;       
+    }
+    /*добавил для Доступности*/
+    .header-contact a:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 1px;
+    }
+/*добавил для лучшей читабельности на стр.*/
+.header-contact p {
+        color: var(--white);
+        margin-top: .7vw;
+        letter-spacing: 0.2vw;
+    }
+/*------------------------------------*/    
     .burger-button {
         display: none;
     }
 
-/*-------------MAIN-------------------*/
+/*-------------MAIN-------------------*/    
     .main-start {
-        padding: 20px 0;
+        padding: 115px 0 20px;
     }
     .main-start h1 {
         font-size: 50px;
     }
+    .main-start-button button {
+        width: 20vw;
+        height: 4vw;
+        font-size: 2vw;
+    }
+    /*добавил для Доступности*/
+    .main-start-button button:focus-visible {
+        border: 4px solid #000;         
+    }
     .main-start img {
         width: 300px;
-        height: 300px;
+        height: 300px;        
     }
     .main-service {
         padding: 30px 0;
@@ -782,6 +1026,8 @@ input, button, textarea, select {
     }
     .main-service-list {
         gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .main-service-item {
         padding: 30px;
@@ -795,6 +1041,10 @@ input, button, textarea, select {
         width: 200px;
         height: 45px;
     }
+    /*добавил для Доступности*/
+    .main-service-item button:focus-visible {
+       border: 4px solid #000;        
+    }
     .main-about {
         padding: 30px 0 60px;
     }
@@ -803,9 +1053,22 @@ input, button, textarea, select {
         margin-bottom: 20px;
     }
 
-
 /*-------------FOOTER-------------------*/
     .footer-content {
         padding: 15px 0;
+    }
+    /*добавил для Доступности*/
+    .footer-content a:focus-visible {
+        outline: 4px solid #fff; 
+        outline-offset: 5px;
+    }
+}
+/* -------------Десктопы от 1921px------------ */
+/*-------------MAIN-------------------*/
+@media (min-width: 1921px) {
+    .main-start-button button {
+        width: 15vw;
+        height: 3vw;
+        font-size: 1.5vw;
     }
 }
