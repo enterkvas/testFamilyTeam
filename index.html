@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru">
+<!-- заменил ru на zxx - ругался валидатор -->
+<html lang="zxx">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,7 @@
                         <span></span>
                     </div>
                     <nav class="header-menu">
-                        <ul class="header-menu-list flex-column">                
+                        <ul id="header-menu-list" class="header-menu-list flex-column">                
                            <li><a data-goto="#main-page" href="#" class="header-menu-link selected">главная</a></li>                
                            <li><a data-goto="#how-we-work" href="#" class="header-menu-link">услуги</a></li>                
                            <li><a data-goto="#freelancers" href="#" class="header-menu-link">цены</a></li>                
@@ -37,9 +38,9 @@
         <main class = "main-container">
             <section class = "wrapper"> 
                 <div class = "main-start flex-row">
-                    <h1>Создание сайтов под ключ</h1>
+                    <h1 class="main-start-header">Создание сайтов под ключ</h1>
                     <div class="main-start-button">
-                        <button href="#recall" class="button">Заказать сайт</button>
+                        <button type="submit" data-state="#recall" class="button">Заказать сайт</button>
                     </div>           
                     <img src = "main.png" alt = "Сайты под ключ">           
                 </div>                        
@@ -49,19 +50,19 @@
                     <h2>Наши услуги</h2>
                     <div class = "main-service-list flex-row">
                         <div class = "main-service-item flex-column">
-                            <h3>Лендинг</h3>
+                            <h3 data-goButtons="#mainLanding" class="main-link">Лендинг</h3>
                             <p>От 20000руб</p>
-                            <button href="#recall" class="button">Заказать</button>
+                            <button type="submit" data-state="#recall" class="button buttonLanding">Заказать</button>
                         </div>
                         <div class = "main-service-item flex-column">
-                            <h3>Интернет магазин</h3>
+                            <h3 data-goButtons="#mainShop" class="main-link">Интернет магазин</h3>
                             <p>От 40000руб</p>
-                            <button href="#recall" class="button">Заказать</button>
+                            <button type="submit" data-state="#recall" class="button buttonShop">Заказать</button>
                         </div>
                         <div class = "main-service-item flex-column">
-                            <h3>Доска объявлений</h3>
+                            <h3 data-goButtons="#mainBoard" class="main-link">Доска объявлений</h3>
                             <p>От 80000руб</p>
-                            <button href="#recall" class="button">Заказать</button>
+                            <button type="submit" data-state="#recall" class="button buttonBoard">Заказать</button>
                         </div>
                     </div>
                 </div>
@@ -94,13 +95,20 @@
             </div>
         </footer>        
         <div class = "hidden-container">
-            <div class = "popup" id = "recall">
-                <h3>Заказать сайт</h3>
-                <form class = "flex-column" method = "POST" action = "/">
-                    <input class = "" type = "text" name="name" required placeholder = "Ваше имя*">
-                    <input class = "" type="tel" name="phone"  required placeholder = "Ваш телефон*">
-                    <button type = "button">Отправить</button>  
-                </form>
+            <div class = "popup" id = "recall">                
+                <form name='main' class = "form flex-column" method = "POST" action = "/">
+                    <h3 class="form__title">Заказать сайт</h3>
+                    <div class="form__group flex-column">
+                        <label class="form__label" for="name">Ваше имя*:</label>
+                        <input class = "form__input" type = "text" id="name" name="name" required placeholder = "Введите Ваше имя">
+                    </div>
+                    <div class="form__group flex-column">
+                        <label class="form__label" for="phone">Ваш телефон*:</label>
+                        <input class = "form__input" type="tel" id="phone" name="name"  required placeholder = "Введите Ваш телефон">
+                    </div>
+                    <div class="form__button"><button type = "submit">Отправить</button></div>  
+                </form>               
+                
             </div> 
         </div>
     </div> 
